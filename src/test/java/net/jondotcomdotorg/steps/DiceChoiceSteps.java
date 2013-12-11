@@ -10,6 +10,7 @@ import net.jondotcomdotorg.splitdecision.Die;
 import net.jondotcomdotorg.splitdecision.DieColor;
 import net.jondotcomdotorg.splitdecision.Point;
 
+import org.jbehave.core.annotations.AsParameterConverter;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -33,12 +34,8 @@ public class DiceChoiceSteps {
 	}
 
 	@When("die $which has the value $value")
-	public void addDie(String which, int value) {
-		if ("A".equals(which)) {
-			choice.getDie1().setValue(value);
-		} else if ("B".equals(which)) {
-			choice.getDie2().setValue(value);
-		}
+	public void addDie(Die which, int value) {
+		which.setValue(value);
 	}
 
 	@When("you calculate the choice's points")
@@ -63,4 +60,14 @@ public class DiceChoiceSteps {
 				Integer.valueOf(numberA), Integer.valueOf(numberB));
 	}
 
+	@AsParameterConverter
+	public Die getDie(String which) {
+		Die die = null;
+		if ("A".equals(which)) {
+			die = choice.getDie1();
+		} else if ("B".equals(which)) {
+			die = choice.getDie2();
+		}
+		return die;
+	}
 }
