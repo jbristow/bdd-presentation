@@ -9,6 +9,11 @@ public class Die {
 		this.color = color;
 	}
 
+	public Die(DieColor color, int value) {
+		this.color = color;
+		this.value = Integer.valueOf(value);
+	}
+
 	public DieColor getColor() {
 		return color;
 	}

@@ -1,11 +1,11 @@
 package net.jondotcomdotorg.splitdecision;
 
 
-public class Points {
+public class Point {
 	private Integer points;
 	private DieColor color;
 
-	public Points(int points, DieColor color) {
+	public Point(int points, DieColor color) {
 		this.points = Integer.valueOf(points);
 		this.color = color;
 	}

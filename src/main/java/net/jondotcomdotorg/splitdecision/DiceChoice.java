@@ -1,5 +1,8 @@
 package net.jondotcomdotorg.splitdecision;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class DiceChoice {
 
 	private Die die1;
@@ -21,11 +24,16 @@ public class DiceChoice {
 		this.die2 = die2;
 	}
 
-	public Points getPointValue() {
+	public List<Point> getPointValue() {
 		if (die1.getColor() == die2.getColor()) {
-			return new Points(2, die1.getColor());
+			return Arrays.asList(new Point(2, die1.getColor()));
+		} else if (die1.getValue() > die2.getValue()) {
+			return Arrays.asList(new Point(1, die1.getColor()));
+		} else if (die1.getValue() < die2.getValue()) {
+			return Arrays.asList(new Point(1, die2.getColor()));
 		} else {
-			return null;
+			return Arrays.asList(new Point(1, die1.getColor()), new Point(1,
+					die2.getColor()));
 		}
 	}
 }

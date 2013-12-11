@@ -4,7 +4,6 @@ import static java.util.Arrays.asList;
 import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
 import static org.jbehave.core.reporters.Format.CONSOLE;
 import static org.jbehave.core.reporters.Format.HTML;
-import static org.jbehave.core.reporters.Format.TXT;
 import static org.jbehave.core.reporters.Format.XML;
 
 import java.net.URL;
@@ -38,8 +37,8 @@ public class SplitDecisionStories extends JUnitStories {
 								.withCodeLocation(codeLocation)
 								.withPathResolver(new ResolveToSimpleName())
 								.withDefaultFormats()
-								.withFormats(CONSOLE, TXT, HTML, XML)
-								.withFailureTrace(false));
+								.withFormats(CONSOLE, HTML, XML)
+								.withFailureTrace(true));
 		return configuration;
 	}
 
