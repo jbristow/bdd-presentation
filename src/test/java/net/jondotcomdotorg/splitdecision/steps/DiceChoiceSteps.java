@@ -1,9 +1,10 @@
-package net.jondotcomdotorg.steps;
+package net.jondotcomdotorg.splitdecision.steps;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.extractProperty;
 
 import java.util.List;
+import java.util.Locale;
 
 import net.jondotcomdotorg.splitdecision.DiceChoice;
 import net.jondotcomdotorg.splitdecision.Die;
@@ -69,5 +70,10 @@ public class DiceChoiceSteps {
 			die = choice.getDie2();
 		}
 		return die;
+	}
+
+	@AsParameterConverter
+	public DieColor getDieColor(String color) {
+		return DieColor.valueOf(color.toUpperCase(Locale.US));
 	}
 }

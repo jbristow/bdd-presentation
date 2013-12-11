@@ -9,7 +9,8 @@ import static org.jbehave.core.reporters.Format.XML;
 import java.net.URL;
 import java.util.List;
 
-import net.jondotcomdotorg.steps.DiceChoiceSteps;
+import net.jondotcomdotorg.splitdecision.steps.DiceChoiceSteps;
+import net.jondotcomdotorg.splitdecision.steps.RecordPointsSteps;
 
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
@@ -44,7 +45,8 @@ public class SplitDecisionStories extends JUnitStories {
 
 	@Override
 	public InjectableStepsFactory stepsFactory() {
-		return new InstanceStepsFactory(configuration(), new DiceChoiceSteps());
+		return new InstanceStepsFactory(configuration(), new DiceChoiceSteps(),
+				new RecordPointsSteps());
 	}
 
 	@Override
