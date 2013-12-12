@@ -1,4 +1,8 @@
 Feature: Scoring Rules for Die Choice					 
+Narrative:
+In order to see the results of my choice 
+As a player
+I want to recieve points that represent my choice.
 
 Scenario: If you kept two red dice, record two red points.
 Given a choice of dice
