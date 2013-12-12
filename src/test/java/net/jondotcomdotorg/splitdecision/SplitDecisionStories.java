@@ -29,13 +29,11 @@ public class SplitDecisionStories extends JUnitStories {
 	public Configuration configuration() {
 		ClassLoader classLoader = Thread.currentThread()
 				.getContextClassLoader();
-		URL codeLocation = CodeLocations.codeLocationFromClass(this.getClass());
 		Configuration configuration = new MostUsefulConfiguration()
 				.useStepCollector(new MarkUnmatchedStepsAsPending())
 				.useStoryLoader(new LoadFromClasspath(classLoader))
 				.useStoryReporterBuilder(
 						new StoryReporterBuilder()
-								.withCodeLocation(codeLocation)
 								.withPathResolver(new ResolveToSimpleName())
 								.withDefaultFormats()
 								.withFormats(CONSOLE, HTML, XML)
